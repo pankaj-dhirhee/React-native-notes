@@ -66,14 +66,17 @@ SETTING UP ENVIRONMENT FOR REACT NATIVE
    * Click ok
    * And now all the windows of it will be closed
 
-9. Turn on 'Hyper v'
+9. Install required things in android studio
+     
+
+10. Turn on 'Hyper v'
    * Open 'Turn Windows feature on ot off'
    * Tick 'Hyper v' option
    * Click Ok
 
-10. Make an android virtual device
+11. Make an android virtual device
 
-11. Create React Native project
+12. Create React Native project
     * Open terminal in a folder where you want to create React native App
     > npx @react-native-community/cli@latest init AwesomeProject
     * Enter
