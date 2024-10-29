@@ -1,0 +1,108 @@
+BASIC FORM IN REACT NATIVE
+
+'App.tsx' =>
+
+import React, {useState} from 'react';
+import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
+
+function App() {
+  const [name, setName] = useState('');
+  const [Password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [displayFormValues, setDisplayFormValues] = useState(false);
+
+  function resetFormData() {
+    setName('');
+    setPassword('');
+    setEmail('');
+  }
+
+  return (
+    <View style={styles.view}>
+      <Text style={styles.topText}> Simple form in react </Text>
+
+      <View style={styles.formContainer}>
+        <TextInput
+          style={styles.textInput}
+          placeholder="Enter your name"
+          value={name}
+          onChangeText={inputValue => setName(inputValue)}
+        />
+        <TextInput
+          style={styles.textInput}
+          placeholder="Enter User Password"
+          secureTextEntry={true}
+          value={Password}
+          onChangeText={inputValue => setPassword(inputValue)}
+        />
+        <TextInput
+          style={styles.textInput}
+          placeholder="Enter User Email"
+          value={email}
+          onChangeText={inputValue => setEmail(inputValue)}
+        />
+
+        <View style={styles.buttonViews}>
+          <Button
+            onPress={() => setDisplayFormValues(true)}
+            color={'green'}
+            title="Print Details"
+          />
+        </View>
+        <View style={styles.buttonViews}>
+          <Button title="Clear Details" onPress={resetFormData} />
+        </View>
+      </View>
+
+      {displayFormValues === true ? (
+        <View style={styles.formValuesContainer}>
+          <Text style={styles.textToShowFormValues}>User name is: {name}</Text>
+          <Text style={styles.textToShowFormValues}>
+            User Password is: {Password}
+          </Text>
+          <Text style={styles.textToShowFormValues}>
+            User Email is: {email}
+          </Text>
+        </View>
+      ) : null}
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  view: {
+    paddingVertical: 5,
+    paddingHorizontal: 8,
+  },
+  formContainer: {
+    marginTop: 17,
+  },
+  topText: {
+    color: 'whitesmoke',
+    fontSize: 30,
+  },
+  textInput: {
+    color: 'whitesmoke',
+    fontSize: 20,
+    paddingHorizontal: 10,
+    borderColor: 'green',
+    borderWidth: 2,
+    borderRadius: 8,
+    marginBottom: 8,
+  },
+  buttonViews: {
+    marginTop: 5,
+    marginBottom: 3,
+    borderRadius: 9,
+    overflow: 'hidden',
+  },
+  formValuesContainer: {
+    marginTop: 15,
+  },
+  textToShowFormValues: {
+    color: 'whitesmoke',
+    fontSize: 20,
+  },
+});
+
+export default App;

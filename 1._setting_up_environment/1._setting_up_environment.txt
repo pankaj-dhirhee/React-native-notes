@@ -1,0 +1,100 @@
+SETTING UP ENVIRONMENT FOR REACT NATIVE
+
+1. Install 'Chocolatey'
+   * Run windows power shell as administrator
+   * Go to 'https://chocolatey.org/install'
+   * from this website you will get command. run it:
+   > Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+2. Chect if Chocolatey installes successfully
+   * Open terminal and run command:
+   > choco
+   * You will get message like: 
+     Chocolatey v2.3.0
+     Please run 'choco -?' or 'choco <command> -?' for help menu.
+
+3. Install nojejs-lts and microsoft jdk
+   * Open command prompt as administrator.
+   * Go to reat native website: 'https://reactnative.dev/docs/set-up-your-environment'
+   * You will get commands there. and run that in command prompt as administrator
+   > choco install -y nodejs-lts microsoft-openjdk17
+
+4. Check if 'nojejs-lts and microsoft jdk' has installed successfully
+   * In windows terminal:
+   > node
+   > node -v
+     v20.18.0
+   > java --version
+     openjdk version "17.0.12" 2024-07-16 LTS
+     OpenJDK Runtime Environment Microsoft-9889599 (build 17.0.12+7-LTS)
+     OpenJDK 64-Bit Server VM Microsoft-9889599 (build 17.0.12+7-LTS, mixed mode, sharing)
+   Note: If you install jdk with Chocolatey, then you dont have to setup environment variable manually.
+
+5. Install Android studio
+
+6. Setup ANDROID_HOME variable
+   * Open 'Edit the system environment variables' bottom written 'control panel'
+   * Click 'Environment variables'
+   * In bottom 'System variable'. Click on 'new'
+   * Variable name: ANDROID_HOME
+   * Variable value: where yo have installed android sdk of android studio. In my case it is: D:\AppData\AndroidStudio
+   * Click ok
+   * Click ok
+   * Click ok
+   * And now all the windows of it will be closed
+
+7. Check if ANDROID_HOME variable has set successfully
+   * Open 'windows power shell' [If already opened, then close it and open again]
+   > Get-ChildItem -Path Env:\
+   * In a list you will get 'ANDROID_HOME  D:\AppData\AndroidStudio'
+
+8. Add platform-tools to Path
+   * Open 'Edit the system environment variables' bottom written 'control panel'
+   * Click 'Environment variables'
+   * On top in 'User variables for Asus'
+   * Double Click on 'path' from the list
+   * On new window click 'New' in left
+   * Add: D:\AppData\AndroidStudio\platform-tools
+   * Click ok
+
+   * Now in 'System variables'
+   * Double Click on 'path' from the list
+   * On new window click 'New' in left
+   * Add: D:\AppData\AndroidStudio\platform-tools
+   * Click ok
+   * Click ok
+   * Click ok
+   * And now all the windows of it will be closed
+
+9. Turn on 'Hyper v'
+   * Open 'Turn Windows feature on ot off'
+   * Tick 'Hyper v' option
+   * Click Ok
+
+10. Make an android virtual device
+
+11. Create React Native project
+    * Open terminal in a folder where you want to create React native App
+    > npx @react-native-community/cli@latest init AwesomeProject
+    * Enter
+    > cd AwesomeProject
+    > a [To run in android]
+    * If error happened:
+      Error resolving plugin [id: 'com.facebook.react.settings']
+      java.io.UncheckedIOException: Could not move temporary workspace (D:\App development work\Practice\AwesomeProject\android\.gradle\8.10.2\dependencies
+      -accessors\569c8b261a8a714d7731d5f568e0e5c05babae10-7059ec48-6334-4569-8a7e-f842fabe2425) to immutable location (D:\App development work\Practice\
+      AwesomeProject\android\.gradle\8.10.2\dependencies-accessors\569c8b261a8a714d7731d5f568e0e5c05babae10)
+   * In file you have openened that project in vs code: 
+   * Go: android/grable/wrapper/gradle-wrapper.properties
+   * In: distributionUrl=https\://services.gradle.org/distributions/gradle-8.10.2-all.zip
+     Chnage it to: distributionUrl=https\://services.gradle.org/distributions/gradle-8.5-all.zip
+                                                                                       ^
+                                                                                       |
+                                                                                     To 8.8
+
+Note: To kill port: 
+      > npx kill-port 8081
+      > Enter if not installed that package
+
+
+

@@ -1,0 +1,67 @@
+LIST IN REACT NATIVE
+
+
+1. List with FlatList
+
+
+Example 1.1
+
+'App.tsx' =>
+
+import React from 'react';
+import {View, FlatList, Text, StyleSheet} from 'react-native';
+
+function App() {
+  const users = [
+    {
+      id: 1,
+      name: 'Anil',
+    },
+    {
+      id: 1,
+      name: 'Sam',
+    },
+    {
+      id: 1,
+      name: 'Peter',
+    },
+    {
+      id: 1,
+      name: 'Bruce',
+    },
+  ];
+
+  return (
+    <View style={styles.mainContainer}>
+      <Text style={styles.headingText}>List with FlatList Component</Text>
+
+      <FlatList
+        data={users}
+        renderItem={({item}) => (
+          <Text style={styles.listTexts}>{item.name}</Text>
+        )}
+        keyExtractor={item => item.id} // To identify that it is a unique
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  headingText: {
+    fontSize: 25,
+    color: 'whitesmoke',
+    marginBottom: 15,
+  },
+  mainContainer: {padding: 5},
+  listTexts: {
+    color: 'whitesmoke',
+    fontSize: 20,
+    backgroundColor: 'green',
+    marginBottom: 5,
+    paddingHorizontal: 5,
+    paddingVertical: 3,
+    borderRadius: 5,
+  },
+});
+
+export default App;

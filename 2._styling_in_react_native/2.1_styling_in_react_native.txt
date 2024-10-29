@@ -1,0 +1,149 @@
+STYLING IN REACT NATIVE
+
+Its types:
+* Inline style
+* Internal style
+* External style
+
+
+
+1. Inline style:
+
+'App.tsx' =>
+
+import React from 'react';
+import {Text, View} from 'react-native';
+
+function App() {
+  return (
+    <View>
+      <Text style={{fontSize: 25, color: 'whitesmoke'}}>
+        This is of fontSize of 25
+      </Text>
+    </View>
+  );
+}
+
+export default App;
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+2. Internal style:
+
+'App.tsx' => 
+
+import React from 'react';
+import {Text, View, StyleSheet} from 'react-native';
+
+function App() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.textBox}>Internal styling</Text>
+      <Text style={[styles.textBox, styles.roundedCorners]}>
+        Multiple internal styling
+      </Text>
+      <Text style={[styles.textBox, styles.roundedCorners, {backgroundColor: 'black'} ]}>
+        Multiple internal styling, with an inline styling
+      </Text>
+    </View>
+  );
+}
+
+// For giving internal stylings, We can define styles in a constant
+const styles = StyleSheet.create({
+  container: {
+    padding: 7,
+  },
+  textBox: {
+    fontSize: 25,
+    color: 'whitesmoke',
+    backgroundColor: 'green',
+    marginBottom: 10,
+    padding: 5,
+    height: 100,
+    textAlignVertical: 'center',
+    textAlign: 'center',
+    borderColor: 'red',
+    borderWidth: 2,
+  },
+  roundedCorners: {
+    borderRadius: 10,
+  },
+});
+
+export default App;
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+3. External styling
+
+'styles/style.js' =>
+
+import {StyleSheet} from 'react-native';
+
+export default StyleSheet.create({
+  textBox: {
+    fontSize: 25,
+    color: 'whitesmoke',
+    backgroundColor: 'green',
+    marginBottom: 10,
+    padding: 5,
+    height: 100,
+    textAlignVertical: 'center',
+    textAlign: 'center',
+    borderColor: 'red',
+    borderWidth: 2,
+  },
+});
+
+
+'App.tsx'
+
+import React from 'react';
+import {Text, View, StyleSheet} from 'react-native';
+// Imported external stylings from a separate file
+import externalStyles from './styles/style';
+
+function App() {
+  return (
+    <View style={styles.container}>
+      <Text style={externalStyles.textBox}>External styling</Text>
+      <Text style={[externalStyles.textBox, styles.roundedCorners]}>
+        External styling and Internal styling
+      </Text>
+      <Text
+        style={[
+          externalStyles.textBox,
+          styles.roundedCorners,
+          {backgroundColor: 'black'},
+        ]}>
+        External styling , Internal styling and Inline styling together
+      </Text>
+    </View>
+  );
+}
+
+// For giving internal stylings, We can define styles in a constant
+const styles = StyleSheet.create({
+  container: {
+    padding: 7,
+  },
+  roundedCorners: {
+    borderRadius: 10,
+  },
+});
+
+export default App;
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+Note: Styles do not work on buttons
+
+
+----------------------------------------------------------------------------------------------------------------------------------
