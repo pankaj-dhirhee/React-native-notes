@@ -1,0 +1,112 @@
+LIST WITH MAP function
+
+Example 5.2.1
+
+'App.tsx' =>
+
+import React from 'react';
+import {View, FlatList, Text, StyleSheet, ScrollView} from 'react-native';
+
+function App() {
+  const users = [
+    {
+      id: 1,
+      name: 'Anil',
+    },
+    {
+      id: 1,
+      name: 'Sam',
+    },
+    {
+      id: 1,
+      name: 'Peter',
+    },
+    {
+      id: 1,
+      name: 'Bruce',
+    },
+    {
+      id: 1,
+      name: 'Anil',
+    },
+    {
+      id: 1,
+      name: 'Sam',
+    },
+    {
+      id: 1,
+      name: 'Peter',
+    },
+    {
+      id: 1,
+      name: 'Bruce',
+    },
+    {
+      id: 1,
+      name: 'Anil',
+    },
+    {
+      id: 1,
+      name: 'Sam',
+    },
+    {
+      id: 1,
+      name: 'Peter',
+    },
+    {
+      id: 1,
+      name: 'Bruce',
+    },
+    {
+      id: 1,
+      name: 'Anil',
+    },
+    {
+      id: 1,
+      name: 'Sam',
+    },
+    {
+      id: 1,
+      name: 'Peter',
+    },
+    {
+      id: 1,
+      name: 'Bruce',
+    },
+  ];
+
+  return (
+    <View style={styles.mainContainer}>
+      <Text style={styles.headingText}>Custom List</Text>
+      <ScrollView style={styles.scrollView}>
+        {/* This is custom list with 'map' */}
+        {users.map(item => (
+          <Text style={styles.listTexts}>{item.name}</Text>
+        ))}
+      </ScrollView>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  mainContainer: {padding: 5},
+  headingText: {
+    fontSize: 25,
+    color: 'whitesmoke',
+    marginBottom: 15,
+  },
+  scrollView: {
+    paddingVertical: 10,
+  },
+  listTexts: {
+    color: 'whitesmoke',
+    fontSize: 20,
+    backgroundColor: 'green',
+    marginBottom: 5,
+    paddingHorizontal: 5,
+    paddingVertical: 20,
+    borderRadius: 5,
+  },
+});
+
+export default App;
