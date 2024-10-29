@@ -1,0 +1,91 @@
+MAKING GRID VIEW IN REACT NATIVE USING FLEX
+
+Example 6.1.1
+
+'App.tsx' =>
+
+import React from 'react';
+import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
+
+function App() {
+  return (
+    <SafeAreaView style={styles.safeAreaView}>
+      <View style={styles.view}>
+        <Text style={styles.topHeading}> Grid With dynamic data</Text>
+
+        <View style={styles.scrollViewContainer}>
+          <ScrollView style={styles.scrollViewOfBoxes}>
+            <View style={styles.textContainer}>
+              <Text style={styles.text}>Box1</Text>
+              <Text style={styles.text}>Box2</Text>
+              <Text style={styles.text}>Box3</Text>
+              <Text style={styles.text}>Box4</Text>
+              <Text style={styles.text}>Box5</Text>
+              <Text style={styles.text}>Box6</Text>
+              <Text style={styles.text}>Box7</Text>
+              <Text style={styles.text}>Box8</Text>
+              <Text style={styles.text}>Box9</Text>
+              <Text style={styles.text}>Box11</Text>
+              <Text style={styles.text}>Box12</Text>
+              <Text style={styles.text}>Box13</Text>
+              <Text style={styles.text}>Box14</Text>
+              <Text style={styles.text}>Box15</Text>
+              <Text style={styles.text}>Box16</Text>
+              <Text style={styles.text}>Box17</Text>
+              <Text style={styles.text}>Box18</Text>
+              <Text style={styles.text}>Box19</Text>
+              <Text style={styles.text}>Box20</Text>
+              <Text style={styles.text}>Box21</Text>
+              <Text style={styles.text}>Box22</Text>
+            </View>
+          </ScrollView>
+        </View>
+      </View>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  safeAreaView: {flex: 1},
+  view: {
+    flex: 1,
+    paddingVertical: 5,
+    paddingHorizontal: 4,
+  },
+  topHeading: {fontSize: 26, color: 'whitesmoke', letterSpacing: 1},
+  scrollViewContainer: {
+    flex: 1,
+    backgroundColor: 'skyblue',
+    borderRadius: 5,
+    padding: 6,
+    marginTop: 10,
+  },
+  scrollViewOfBoxes: {
+    flex: 1,
+    borderRadius: 5,
+  },
+  textContainer: {
+    gap: 7,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  text: {
+    fontSize: 20,
+    color: 'black',
+    height: 100,
+    aspectRatio: '1/1',
+    backgroundColor: 'green',
+    borderRadius: 7,
+    padding: 5,
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    flexShrink: 0.5,
+    flexGrow: 0.5,
+  },
+});
+
+export default App;
+
+
+
+Note: Boxes are scrollable
