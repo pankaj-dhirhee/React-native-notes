@@ -94,6 +94,17 @@ SETTING UP ENVIRONMENT FOR REACT NATIVE
                                                                                        ^
                                                                                        |
                                                                                      To 8.8
+   * If error happed:
+     '/ndk/26.1.10909125 does not have source.properties file'
+   * Reason: That ndk [ Native development kit ] is not properly downloaded properly
+   * Solution:
+     * Delete this folder '26.1.10909125'  [path you will get in that error]
+     * In android studio go to SDK manager > SDK Tools
+     * Click 'Show package details'
+     * In NDK [Side by side]
+     * Download that specific version '26.1.10909125'
+
+
 
 Note: To kill port: 
       > npx kill-port 8081
