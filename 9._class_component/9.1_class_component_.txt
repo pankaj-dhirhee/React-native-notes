@@ -1,0 +1,56 @@
+CLASS COMPONENT IN REACT NATIVE
+
+Note: Class Component is older one.
+
+
+Example: 9.1.1
+
+
+'Student.jsx' [Inside 'components' folder] =>
+
+import React, {Component} from 'react';
+import {Button, Text, TextInput, View} from 'react-native';
+
+class Student extends Component {
+  render() {
+    return (
+      <View>
+        <Text style={{fontSize: 30, color: 'pink'}}>
+          This is students component
+        </Text>
+        <TextInput placeholder="Enter your name" />
+        <Button title="Learn More" color="#841584" />
+      </View>
+    );
+  }
+}
+
+export default Student;
+
+
+'App.tsx' =>
+
+import React, {Component} from 'react';
+import {Button, Text, TextInput, View} from 'react-native';
+import Student from './components/Student';
+
+class App extends Component {
+  render() {
+    function fruit() {
+      alert('Apple');
+    }
+
+    return (
+      <View>
+        <Text style={{fontSize: 30, color: 'red'}}> Class Component</Text>
+        <TextInput placeholder="Enter your name" />
+        <Button onPress={fruit} title="Learn More" color="#841584" />
+
+        <Student />
+      </View>
+    );
+  }
+}
+
+export default App;
+

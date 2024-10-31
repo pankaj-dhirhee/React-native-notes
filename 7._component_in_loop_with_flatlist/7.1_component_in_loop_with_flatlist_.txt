@@ -1,0 +1,86 @@
+COMPONENT IN LOOP WITH FLATLIST
+
+
+Example 7.1.1
+
+'App.tsx' =>
+
+import React from 'react';
+import {FlatList, SafeAreaView, StyleSheet, Text, View} from 'react-native';
+
+function App() {
+  const users = [
+    {id: 1, name: 'Rinku', email: 'rinku@gmail.com'},
+    {id: 2, name: 'Pinku', email: 'pinku@gmail.com'},
+    {id: 3, name: 'Rinku', email: 'rinku@gmail.com'},
+    {id: 4, name: 'Rinku', email: 'rinku@gmail.com'},
+    {id: 5, name: 'Rinku', email: 'rinku@gmail.com'},
+    {id: 6, name: 'Rinku', email: 'rinku@gmail.com'},
+    {id: 7, name: 'Rinku', email: 'rinku@gmail.com'},
+    {id: 8, name: 'Rinku', email: 'rinku@gmail.com'},
+    {id: 9, name: 'Rinku', email: 'rinku@gmail.com'},
+    {id: 10, name: 'Rinku', email: 'rinku@gmail.com'},
+    {id: 11, name: 'Rinku', email: 'rinku@gmail.com'},
+    {id: 12, name: 'Rinku', email: 'rinku@gmail.com'},
+    {id: 13, name: 'Rinku', email: 'rinku@gmail.com'},
+  ];
+
+  return (
+    <SafeAreaView style={styles.safeAreaView}>
+      <View style={styles.view}>
+        <Text style={styles.topHeading}> Component in loop with FlatList </Text>
+
+        <FlatList
+          data={users}
+          renderItem={({item}) => <UserData item={item} />}
+        />
+      </View>
+    </SafeAreaView>
+  );
+}
+
+// Component list
+const UserData = ({item}) => {
+  return (
+    <View style={styles.textBox}>
+      <Text style={styles.text}> {item.name} </Text>
+      <Text style={styles.text}> {item.email} </Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  safeAreaView: {flex: 1},
+  view: {
+    flex: 1,
+    paddingVertical: 5,
+    paddingHorizontal: 4,
+  },
+  topHeading: {
+    fontSize: 26,
+    color: 'whitesmoke',
+    letterSpacing: 1,
+    marginBottom: 15,
+  },
+  textBox: {
+    borderColor: 'orange',
+    borderWidth: 2,
+    marginBottom: 5,
+    borderRadius: 7,
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'nowrap',
+    justifyContent: 'space-between',
+    padding: 5,
+  },
+  text: {
+    color: 'orange',
+    fontSize: 20,
+  },
+});
+
+export default App;
+
+
+
+Note => You can also put 'UserData' component in separate file and styles also

@@ -1,0 +1,131 @@
+SECTION LIST IN REACT NATIVE
+
+Section list: If you have an Array and inside it you have another Array and you want to make list fot that.
+
+Note: If you are using nested array then you have to use 'data' key only
+
+
+
+Example 8.1.1: Rendering Array items
+
+'App.tsx' =>
+
+import React from 'react';
+import {SafeAreaView, SectionList, StyleSheet, Text, View} from 'react-native';
+
+function App() {
+  // If you are using nested array then you have to use 'data' key only
+  const users = [
+    {id: 1, name: 'Anil', data: ['PHP', 'React js', 'Angular']},
+    {id: 2, name: 'Peter', data: ['Java', 'Js', 'HTML']},
+    {id: 3, name: 'Bruce', data: ['C', 'C++', 'Python']},
+    {id: 4, name: 'Tonny', data: ['CSS', 'Bootstrap', 'HTML']},
+  ];
+
+  return (
+    <SafeAreaView style={styles.safeAreaView}>
+      <View style={styles.view}>
+        <Text style={styles.topHeading}> Section List in React Native </Text>
+
+        <SectionList
+          sections={users}
+          renderItem={({item}) => <Text style={styles.text}>{item}</Text>}
+        />
+      </View>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  safeAreaView: {flex: 1},
+  view: {
+    flex: 1,
+    paddingVertical: 5,
+    paddingHorizontal: 4,
+  },
+  topHeading: {
+    fontSize: 26,
+    color: 'whitesmoke',
+    letterSpacing: 1,
+    marginBottom: 15,
+  },
+  text: {
+    color: 'orange',
+    fontSize: 20,
+  },
+});
+
+export default App;
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+Example 8.1.2: Rendering 'sectionHeader' also isong 'renderSectionHeader'
+
+'App.tsx' =>
+
+import React from 'react';
+import {SafeAreaView, SectionList, StyleSheet, Text, View} from 'react-native';
+
+function App() {
+  // If you are using nested array then you have to use 'data' key only
+  const users = [
+    {id: 1, name: 'Anil', data: ['PHP', 'React js', 'Angular']},
+    {id: 2, name: 'Peter', data: ['Java', 'Js', 'HTML']},
+    {id: 3, name: 'Bruce', data: ['C', 'C++', 'Python']},
+    {id: 4, name: 'Tonny', data: ['CSS', 'Bootstrap', 'HTML']},
+  ];
+
+  return (
+    <SafeAreaView style={styles.safeAreaView}>
+      <View style={styles.view}>
+        <Text style={styles.topHeading}> Section List in React Native </Text>
+
+        <SectionList
+          sections={users}
+          renderItem={({item}) => (
+            // Rendering elements inside of an array
+            <Text style={styles.text}>Skill: {item}</Text>
+          )}
+          renderSectionHeader={({section: {name}}) => (
+            // It is rendering name
+            <Text style={styles.sectionHeaderText}>{name}</Text>
+          )}
+        />
+      </View>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  safeAreaView: {flex: 1},
+  view: {
+    flex: 1,
+    paddingVertical: 5,
+    paddingHorizontal: 4,
+  },
+  topHeading: {
+    fontSize: 26,
+    color: 'whitesmoke',
+    letterSpacing: 1,
+    marginBottom: 15,
+  },
+  sectionHeaderText: {
+    fontSize: 23,
+    marginBottom: 5,
+    color: 'orange',
+  },
+  text: {
+    color: 'orange',
+    fontSize: 20,
+    opacity: 0.8,
+    marginLeft: 15,
+  },
+});
+
+export default App;
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------
