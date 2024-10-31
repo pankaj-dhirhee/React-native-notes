@@ -1,0 +1,93 @@
+'useEffect()' HOOK AS LIFECYCLE IN FUNCTIONAL COMPONENTS
+
+
+What is 'useEffect' hook?
+Used for Life Cycle methods in Functional Componets. Cannot ber used in Class based Components. Life Cycle methods cannot be directly used
+in Functional Components.
+
+
+* For all the LifeCycle methods, we have only 'useEffect()' hook.
+
+
+To open dev tools: Ctrl + M  > Devtools
+
+
+
+Example 13.1.1 Using useEffect for Mounting phase:
+
+'App.tsx' =>
+
+import React, {useEffect} from 'react';
+import {StyleSheet, Text, View} from 'react-native';
+
+const App = () => {
+  // Called in Mounting phase
+  useEffect(() => {
+    console.log('Hello');
+  });
+
+  return (
+    <View>
+      <Text style={styles.topHeading}>useEffect hook in React Native </Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  topHeading: {
+    fontSize: 30,
+    color: 'red',
+    marginBottom: 20,
+  },
+});
+
+export default App;
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+Example 13.1.2 Calling 'useEffect()' only in Mounting phase, not on component re-render, by passing blank array as dependency
+
+'App.tsx' =>
+
+import React, {useEffect, useState} from 'react';
+import {Button, StyleSheet, Text, View} from 'react-native';
+
+const App = () => {
+  // Called only in Mounting phase
+  useEffect(() => {
+    console.log('Hello');
+  }, []);
+
+  const [count, setCount] = useState(0);
+
+  return (
+    <View>
+      <Text style={styles.topHeading}>useEffect hook in React Native </Text>
+
+      <Button onPress={() => setCount(count + 1)} title="Increment count" />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  topHeading: {
+    fontSize: 30,
+    color: 'red',
+    marginBottom: 20,
+  },
+});
+
+export default App;
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+What is 'ComponentDidMount'?
+It means that we have to call 'useEffect()' only when Component Mounts. 'ComponentDidMount' is also a function in Class based
+Component.
+
+* Iniatially when component mounts, the useEffect will be called because initially state updates. No matters you update state or not.
+  

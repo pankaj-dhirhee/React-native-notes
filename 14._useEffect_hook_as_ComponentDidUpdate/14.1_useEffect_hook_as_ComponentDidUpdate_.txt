@@ -1,0 +1,157 @@
+'useEffect()' HOOK AS 'ComponentDidUpdate'
+
+
+'ComponentDidUpdate' means, call useEffect() hook only on given state updates.
+
+* Iniatially when component mounts, the useEffect will be called, because initially state updates. No matters you update state or not.
+
+Imp note: If you have used 'useEffect()' with dependency of a state, and that dependency state is at bottom of 'useEffect()' hook,
+          then your 'useEffect()' hook will only call first time when component mounts, and not when state updates.
+
+Imp note: If you passed two states as a dependency, and you are updating both the states on a button click, then useEffect() will 
+          call only one time. not two times.
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+Example 14.1.1 Using useEffect()  as ComponentDidUpdate
+
+'App.tsx' =>
+
+import React, {useEffect, useState} from 'react';
+import {Button, StyleSheet, Text, View} from 'react-native';
+
+const App = () => {
+  const [count, setCount] = useState(0);
+  const [counterTwo, setCounterTwo] = useState(0);
+
+  // Called when state 'count' or 'counterTwo' will update.
+  useEffect(() => {
+    console.log('Count updated');
+  }, [count, counterTwo]);
+
+  return (
+    <View>
+      <Text style={styles.topHeading}>useEffect hook in React Native </Text>
+
+      <Text style={styles.smallText}>Counter value: {count} </Text>
+      <Text style={styles.smallText}>Counter2 value: {counterTwo} </Text>
+
+      <View style={styles.ContainerOfButton}>
+        <Button
+          onPress={() => {
+            setCount(count + 1);
+            setCounterTwo(counterTwo + 1);
+          }}
+          title="Increment count"
+        />
+        <Button
+          onPress={() => setCounterTwo(counterTwo + 1)}
+          title="Increment count"
+        />
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  topHeading: {
+    fontSize: 30,
+    color: 'red',
+    marginBottom: 20,
+  },
+  smallText: {
+    fontSize: 20,
+    color: 'whitesmoke',
+  },
+  ContainerOfButton: {
+    marginTop: 20,
+  },
+});
+
+export default App;
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+Example 14.1.2 Calling useEffect on prop update
+
+
+'App.tsx' =>
+
+import React, {useEffect, useState} from 'react';
+import {Button, StyleSheet, Text, View} from 'react-native';
+
+const App = () => {
+  const [count, setCount] = useState(0);
+  const [counterTwo, setCounterTwo] = useState(0);
+
+  // Called when state 'count' or 'counterTwo' will update.
+  useEffect(() => {
+    console.log('Count updated');
+  }, [count, counterTwo]);
+
+  return (
+    <View>
+      <Text style={styles.topHeading}>useEffect hook in React Native </Text>
+
+      <Text style={styles.smallText}>Counter value: {count} </Text>
+      <Text style={styles.smallText}>Counter2 value: {counterTwo} </Text>
+
+      <View style={styles.ContainerOfButton}>
+        <Button
+          onPress={() => {
+            setCount(count + 1);
+            setCounterTwo(counterTwo + 1);
+          }}
+          title="Increment both counter"
+        />
+        <Button
+          onPress={() => setCounterTwo(counterTwo + 1)}
+          title="Increment counter2"
+        />
+      </View>
+
+      {/* Passing state 'count' as prop */}
+      <Users count={count} />
+    </View>
+  );
+};
+
+const Users = ({count}) => {
+  // Called when prop 'count' will update.
+  useEffect(() => {
+    console.log('Prop Count updated');
+  }, [count]);
+
+  return (
+    <View>
+      <Text style={styles.topHeading}>Users component </Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  topHeading: {
+    fontSize: 30,
+    color: 'red',
+    marginBottom: 20,
+  },
+  smallText: {
+    fontSize: 20,
+    color: 'whitesmoke',
+  },
+  ContainerOfButton: {
+    marginTop: 20,
+  },
+});
+
+export default App;
+
+
+Note: Here, useEffect() who is updating on prop change. You can see in given output video.
+
+
+----------------------------------------------------------------------------------------------------------------------------------

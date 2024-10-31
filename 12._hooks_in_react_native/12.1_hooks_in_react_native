@@ -1,0 +1,15 @@
+HOOKS IN REACT NATIVE
+
+What are hooks?
+All the features that was possible in Class based Components and not in Functional Components, With the help of Hooks, we can do all the things
+in Functional Components that we could do in Class based Components.
+
+* Introduced in react 16.8
+
+* They let us use state and other features without writing a Class.
+
+* Starts with 'use' keyword.
+
+* Hooks cannot be used in Class based components. You can use it in only Functional Components.
+
+

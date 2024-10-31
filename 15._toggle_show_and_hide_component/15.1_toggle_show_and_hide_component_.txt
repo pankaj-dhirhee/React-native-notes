@@ -1,0 +1,50 @@
+TOGGLE SHOW AND HIDE COMPONENT
+
+
+Example 15.1.1
+
+'App.tsx' =>
+
+import React, {useState} from 'react';
+import {Button, StyleSheet, Text, View} from 'react-native';
+
+const App = () => {
+  const [show, setshow] = useState(true);
+
+  return (
+    <View>
+      <Text style={styles.topHeading}>useEffect hook in React Native </Text>
+
+      <Button
+        onPress={() => setshow(!show)}
+        title="Click me to hide or show users component"
+      />
+      {show ? <Users /> : null}
+    </View>
+  );
+};
+
+const Users = ({count}) => {
+  return (
+    <View>
+      <Text style={styles.topHeading}>Users component </Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  topHeading: {
+    fontSize: 30,
+    color: 'red',
+    marginBottom: 20,
+  },
+  smallText: {
+    fontSize: 20,
+    color: 'whitesmoke',
+  },
+});
+
+export default App;
+
+
+----------------------------------------------------------------------------------------------------------------------------------
