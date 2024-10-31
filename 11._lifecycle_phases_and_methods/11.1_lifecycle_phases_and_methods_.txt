@@ -1,0 +1,29 @@
+LIFE CYCLE PHASES AND METHODS
+
+
+Life Cycle phase:
+* Mounting
+* Update
+* Unmounting
+
+
+When Life Cycle will be executed?:
+
+* When Component render first time.
+* When Component update with state.
+* When Component update with props.
+* On Error [Error in Class component].
+* When Component unmount.
+
+
+Interview question
+
+1. Can we use Life Cycle methon in Functional Componwnt?
+Ans: Yes we can.
+
+2. How use Life Cycle methon in Functional Componwnt?
+Ans: Through 'Hooks'
+
+3. Phases of Life Cycle method?
+
+4. When Life Cycle methos execute?
