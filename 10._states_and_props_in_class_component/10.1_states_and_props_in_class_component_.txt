@@ -1,0 +1,109 @@
+STATES AND PROPS IN CLASS COMPONENT
+
+Example: 10.1.1
+
+'Student.jsx' [Inside 'components' folder] =>
+
+import React, {Component} from 'react';
+import {Text, View} from 'react-native';
+
+class Student extends Component {
+  render() {
+    return (
+      <View>
+        <Text style={{fontSize: 30, color: 'pink', marginTop: 40}}>
+          Students component
+        </Text>
+        <Text style={{fontSize: 25, color: 'skyblue', marginTop: 15}}>
+          Name coming from prop: {this.props.name}
+        </Text>
+      </View>
+    );
+  }
+}
+
+export default Student;
+
+
+'App.tsx' =>
+
+import React, {Component} from 'react';
+import {StyleSheet, Text, TextInput, View} from 'react-native';
+import Student from './components/Student';
+
+class App extends Component {
+  // Way to make state in Class Component. [Using constructor]
+  constructor() {
+    /* User of super() keyword:
+     * Actually this App Component does not know that what is this 'state' property, from where is it coming,
+     * 'state' property is actually coming from parent component [extends Component].
+     * To call constructor of parent component, we call super() keyword;
+     */
+    super();
+    this.state = {
+      name: 'Anil',
+      age: 20,
+    };
+  }
+
+  // Updating value of created states
+  updateName(value) {
+    this.setState({name: value});
+  }
+
+  render() {
+    return (
+      <View>
+        <Text style={styles.topHeading}>State and prop in Class Component</Text>
+
+        {/* Getting value of created states */}
+        <Text style={styles.smallText}> Name: {this.state.name} </Text>
+        <Text style={styles.smallText}> Age: {this.state.age} </Text>
+
+        <TextInput
+          onChangeText={inputValue => this.updateName(inputValue)}
+          placeholder="Update value of name state"
+          style={styles.input}
+        />
+
+        {/* Passing 'name' as prop to Student Component*/}
+        <Student name={this.state.name} />
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  topHeading: {
+    fontSize: 30,
+    color: 'red',
+    marginBottom: 20,
+  },
+  smallText: {
+    fontSize: 25,
+    color: 'green',
+  },
+  input: {
+    marginTop: 15,
+    marginHorizontal: 5,
+    padding: 10,
+    borderColor: 'yellow',
+    borderWidth: 2,
+    fontSize: 18,
+    color: 'pink',
+    borderRadius: 10,
+  },
+});
+
+export default App;
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+Important Interview question
+
+What is use of super() keyword: To call constructor of parent component, we call super() keyword
+
+
+----------------------------------------------------------------------------------------------------------------------------------
