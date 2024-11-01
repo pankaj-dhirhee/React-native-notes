@@ -1,0 +1,57 @@
+ACTIVITY INDIGATOR OR LOADER
+
+Example 21.1.1
+
+'App.tsx' =>
+
+import React, {useState} from 'react';
+import {ActivityIndicator, Button, StyleSheet, View} from 'react-native';
+
+const App = () => {
+  const [snow, setShow] = useState(false);
+
+  return (
+    <View style={styles.mainContainer}>
+      <ActivityIndicator size="large" />
+
+      {/* If animating={false} => Hide the loader */}
+      <ActivityIndicator size="large" animating={snow} />
+
+      {/* Green color activity indigator  */}
+      <ActivityIndicator size="large" color="green" />
+
+      <Button title="show hidden loader" onPress={() => setShow(true)} />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+    padding: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  topHeading: {
+    fontSize: 26,
+    color: 'skyblue',
+    marginBottom: 20,
+  },
+});
+
+export default App;
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+* In android you can do both:
+  <ActivityIndicator size="large" /> or <ActivityIndicator size="small" />
+  <ActivityIndicator size={100} />
+
+* But in ios you can only:
+  <ActivityIndicator size="large" /> or <ActivityIndicator size="small" /> or <ActivityIndicator size="medium" />   
+  * You cannot give here numeric values
+
+
+----------------------------------------------------------------------------------------------------------------------------------
