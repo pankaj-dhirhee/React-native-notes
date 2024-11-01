@@ -1,0 +1,92 @@
+DYNAMICALLY CREATING RAADIO BUTTONS
+
+
+Example 20.1.1 
+
+'App.tsx' =>
+
+import React, {useState} from 'react';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+
+const App = () => {
+  const skills = [
+    {id: 1, name: 'JAVA'},
+    {id: 2, name: 'PHP'},
+    {id: 3, name: 'Node'},
+    {id: 4, name: 'SQL'},
+    {id: 5, name: 'Python'},
+  ];
+
+  const [selectedRadio, setSelectedRadio] = useState(1);
+
+  return (
+    <View style={styles.mainContainer}>
+      <Text style={styles.topHeading}>Dynamically creating radio buttons</Text>
+
+      {skills.map((object, index) => (
+        <TouchableOpacity
+          key={index}
+          style={styles.touchableOpacity}
+          onPress={() => setSelectedRadio(object.id)}>
+          <View style={styles.touchableOpacityInsideContainer}>
+            <View style={styles.radio}>
+              {selectedRadio === object.id && (
+                <View style={styles.innerRadio}> </View>
+              )}
+            </View>
+            <Text style={styles.radioText}>{object.name}</Text>
+          </View>
+        </TouchableOpacity>
+      ))}
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+    padding: 5,
+  },
+  topHeading: {
+    fontSize: 26,
+    color: 'skyblue',
+    marginBottom: 20,
+  },
+  touchableOpacity: {
+    height: 30,
+    overflow: 'hidden',
+    marginBottom: 15,
+  },
+  touchableOpacityInsideContainer: {
+    height: '100%',
+    flexDirection: 'row',
+  },
+  radio: {
+    height: '100%',
+    aspectRatio: '1/1',
+    borderWidth: 3,
+    borderColor: 'skyblue',
+    marginRight: 10,
+    borderRadius: '50%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 4,
+  },
+  innerRadio: {
+    height: '100%',
+    aspectRatio: '1/1',
+    backgroundColor: 'skyblue',
+    borderRadius: '50%',
+  },
+  radioText: {
+    display: 'inline',
+    fontSize: 18,
+    textAlignVertical: 'center',
+    color: 'whitesmoke',
+  },
+});
+
+export default App;
+
+
+----------------------------------------------------------------------------------------------------------------------------------

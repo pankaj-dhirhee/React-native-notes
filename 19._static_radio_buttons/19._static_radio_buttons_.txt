@@ -1,0 +1,95 @@
+STATIC RADIO BUTTONS WITH '<TouchableOpacity></TouchableOpacity>'
+
+* React native does not have it's own radio buttons we have to manually create it.
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+Example 19.1.1
+
+'App.tsx' =>
+
+import React, {useState} from 'react';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+
+const App = () => {
+  const [selectedRadio, setSelectedRadio] = useState(1);
+
+  return (
+    <View style={styles.mainContainer}>
+      <Text style={styles.topHeading}>Manually creating radio buttons</Text>
+
+      <TouchableOpacity
+        style={styles.touchableOpacity}
+        onPress={() => setSelectedRadio(1)}>
+        <View style={styles.touchableOpacityInsideContainer}>
+          <View style={styles.radio}>
+            {selectedRadio === 1 && <View style={styles.innerRadio}> </View>}
+          </View>
+          <Text style={styles.radioText}> Radio 1</Text>
+        </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.touchableOpacity}
+        onPress={() => setSelectedRadio(2)}>
+        <View style={styles.touchableOpacityInsideContainer}>
+          <View style={styles.radio}>
+            {selectedRadio === 2 && <View style={styles.innerRadio}> </View>}
+          </View>
+          <Text style={styles.radioText}> Radio 2</Text>
+        </View>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+    padding: 5,
+  },
+  topHeading: {
+    fontSize: 27,
+    color: 'skyblue',
+    marginBottom: 20,
+  },
+  touchableOpacity: {
+    height: 30,
+    overflow: 'hidden',
+    marginBottom: 15,
+  },
+  touchableOpacityInsideContainer: {
+    height: '100%',
+    flexDirection: 'row',
+  },
+  radio: {
+    height: '100%',
+    aspectRatio: '1/1',
+    borderWidth: 3,
+    borderColor: 'skyblue',
+    marginRight: 10,
+    borderRadius: '50%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 4,
+  },
+  innerRadio: {
+    height: '100%',
+    aspectRatio: '1/1',
+    backgroundColor: 'skyblue',
+    borderRadius: '50%',
+  },
+  radioText: {
+    display: 'inline',
+    fontSize: 18,
+    textAlignVertical: 'center',
+    color: 'whitesmoke',
+  },
+});
+
+export default App;
+
+
+----------------------------------------------------------------------------------------------------------------------------------

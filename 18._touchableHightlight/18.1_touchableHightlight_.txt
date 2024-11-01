@@ -1,0 +1,67 @@
+STYLISHED BUTTON WITH '<TouchableHighlight></TouchableHighlight>'
+
+Example 18.1.1
+
+'App.tsx' =>
+
+import React from 'react';
+import {StyleSheet, Text, TouchableHighlight, View} from 'react-native';
+
+const App = () => {
+  return (
+    <View style={styles.mainContainer}>
+      <Text style={styles.topHeading}>TouchableHighlight</Text>
+
+      <TouchableHighlight style={styles.touchableHighlight}>
+        <Text style={styles.buttonText}> Success </Text>
+      </TouchableHighlight>
+
+      <TouchableHighlight
+        style={[styles.touchableHighlight, styles.buttonPrimary]}>
+        <Text style={styles.buttonText}> Primary </Text>
+      </TouchableHighlight>
+
+      <TouchableHighlight
+        style={[styles.touchableHighlight, styles.buttonWarning]}>
+        <Text style={styles.buttonText}> Error </Text>
+      </TouchableHighlight>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+    padding: 5,
+  },
+  topHeading: {
+    fontSize: 30,
+    color: 'skyblue',
+    marginBottom: 20,
+  },
+  touchableHighlight: {
+    backgroundColor: 'green',
+    padding: 8,
+    borderRadius: 10,
+    shadowColor: 'skyblue',
+    elevation: 5,
+    shadowOpacity: 1,
+    marginBottom: 15,
+  },
+  buttonText: {
+    fontSize: 20,
+    color: 'whitesmoke',
+    textAlign: 'center',
+  },
+  buttonPrimary: {
+    backgroundColor: 'blue',
+  },
+  buttonWarning: {
+    backgroundColor: 'red',
+  },
+});
+
+export default App;
+
+
+----------------------------------------------------------------------------------------------------------------------------------

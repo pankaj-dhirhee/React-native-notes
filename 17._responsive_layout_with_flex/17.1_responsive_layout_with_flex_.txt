@@ -1,0 +1,68 @@
+RESPONSIVE LAYOUT WITH FLEX
+
+
+Example 17.1.1 
+
+'App.tsx' =>
+
+import React from 'react';
+import {StyleSheet, View} from 'react-native';
+
+const App = () => {
+  return (
+    <View style={styles.mainView}>
+      <View style={styles.flex1}>
+        <View style={styles.innerBox1} />
+        <View style={styles.innerBox2} />
+        <View style={styles.innerBox3} />
+      </View>
+
+      <View style={styles.flex2} />
+      <View style={styles.flex3} />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  // Parent must have flex, without this, nothing will work
+  mainView: {
+    flex: 1,
+  },
+  flex1: {
+    backgroundColor: 'red',
+    flex: 2,
+    flexDirection: 'row',
+  },
+  innerBox1: {
+    flex: 1,
+    backgroundColor: 'skyblue',
+    margin: 10,
+  },
+  innerBox2: {
+    flex: 1,
+    backgroundColor: 'yellow',
+    margin: 10,
+  },
+  innerBox3: {
+    flex: 1,
+    backgroundColor: 'orange',
+    margin: 10,
+  },
+  flex2: {
+    backgroundColor: 'green',
+    flex: 1,
+  },
+  flex3: {
+    backgroundColor: 'blue',
+    flex: 1,
+  },
+  flex4: {
+    backgroundColor: 'yellow',
+    flex: 1,
+  },
+});
+
+export default App;
+
+
+----------------------------------------------------------------------------------------------------------------------------------
